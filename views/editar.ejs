@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Usuario - Almacén</title>
+    <link rel="stylesheet" href="/usuarios/web/css/editar.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <form action="/usuarios/editar" method="post" enctype="multipart/form-data">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Modificar Usuario</h1>
+                </div>
+                <div class="card-body">
+                    <input type="hidden" name="id" id="id" value="<%= user.id %>">
+                    <input type="hidden" name="passwordViejo" id="passwordViejo" value="<%= user.password %>">
+                    <input type="hidden" name="saltViejo" id="saltViejo" value="<%= user.salt %>">
+                    <input type="hidden" name="fotoVieja" id="fotoVieja" value="<%= user.foto %>">
+                    
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input class="form-control" type="text" value="<%= user.nombre %>" name="nombre" id="nombre" placeholder="Nombre" autofocus>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="usuario">Usuario</label>
+                        <input class="form-control" type="text" value="<%= user.usuario %>" name="usuario" id="usuario" placeholder="Usuario">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="foto">Foto</label>
+                        <input class="form-control" type="file" name="foto" id="foto">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Nuevo Password</label>
+                        <input class="form-control" type="text" name="password" id="password" placeholder="Dejar en blanco para conservarlo">
+                    </div>
+                </div>
+                
+                <div class="card-footer">
+                    <button class="btn btn-submit" type="submit">Modificar Usuario</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

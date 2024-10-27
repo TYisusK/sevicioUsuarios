@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Usuarios - Almacén</title>
+    <link rel="stylesheet" href="/usuarios/web/css/adminU.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4C+Xb2V8bRO+yVoEpzl+o5B5gK9gdDNlLPSf05fiQO9V3D/0uKvUZflXGg38phMeq1YBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="/productos/almacen" class="btn">Inicio</a></li>
+            <li><a href="/usuarios/registrarse" class="btn">Añadir Usuario</a></li>
+            <li><a href="/usuarios/usuarios" class="btn">Usuarios</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido de la página -->
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h1><i class="fas fa-boxes"></i> Administración de Usuarios - Almacén</h1>
+                <p class="subtitle">Gestión de acceso y perfiles del almacén</p>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Usuario</th>
+                            <th>Password</th>
+                            <th>Foto</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% usuarios.forEach((usuario, i) => { %>
+                        <tr>
+                            <td><%= i + 1 %></td>
+                            <td><%= usuario.nombre %></td>
+                            <td><%= usuario.usuario %></td>
+                            <td>*****</td>
+                            <td><img src="/usuarios/uploads/images/<%= usuario.foto %>" class="user-image" alt="Foto usuario"></td>
+                            <td>
+                                <a href="/usuarios/editar/<%= usuario.id %>" class="btn btn-edit"><i class="fas fa-edit"></i> Editar</a>
+                                <a href="/usuarios/borrar/<%= usuario.id %>" class="btn btn-delete"><i class="fas fa-trash-alt"></i> Borrar</a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
