@@ -59,7 +59,7 @@ ruta.post("/nuevousuario", subirArchivo(), async (req, res) => {
             console.error("Error al crear el usuario:", error);
             return res.status(500).send("No se pudo crear el usuario");
         }
-        res.redirect("/usuarios/login");
+        res.redirect("/usuarios/");
     } catch (err) {
         console.error("Error inesperado en nuevoUsuario:", err);
         res.status(500).send("Error inesperado");
